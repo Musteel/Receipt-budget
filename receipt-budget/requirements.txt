@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pandas
+matplotlib
+easyocr
+scikit-learn
+sqlite3
+plotly
+python-multipart

@@ -14,10 +14,12 @@ def parse_receipt_text(text: str) -> List[Dict[str, Any]]:
     lines = [l.strip() for l in text.splitlines() if l.strip()]
     items = []
     for line in lines:
+        if re.search(r'\b(total|subtotal|tax|change|cash|visa|mastercard|balance|amount)\b', line.lower(), re.I):
+            continue
         parts = line.rsplit(' ', 2)
         candidate_price = None
         if parts:
-            m = re.search(r'\d+[.,]\d{2})\s*$', line)
+            m = re.search(r'(\d+[.,]\d{2})\s*$', line)
             if m:
                 candidate_price = _normalize_number(m.group(1))
             else:

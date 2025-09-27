@@ -3,12 +3,12 @@ import pickle
 from pathlib import Path
 
 RULES = {
-    "coffee": [],
-    "groceries": [],
-    "transport": [],
-    "entertainment": [],
-    "restaurants": [],
-    "alcohol": []
+    "coffee": ["latte", "coffee", "cappuccino", "espresso", "starbucks"],
+    "groceries": ["milk", "bread", "eggs", "cheese", "grocery", "supermarket", "banana", "apple", "orange"],
+    "transport": ["uber", "taxi", "bus", "train", "metro", "sweden rail"],
+    "entertainment": ["netflix", "spotify", "movie", "cinema", "concert"],
+    "restaurants": ["restaurant", "dinner", "kebab", "pizzeria", "burger", "bar"],
+    "alcohol": ["beer", "wine", "vodka", "whiskey"]
 }
 ML_MODEL_PATH = Path(__file__).parent / "models" / "cat_clf.pkl"
 VECT_PATH = Path(__file__).parent / "models" / "vect.pkl"

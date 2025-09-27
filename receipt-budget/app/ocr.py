@@ -1,6 +1,6 @@
 import io
 import easyocr
-from PIL import Image
+from PIL import Image, ImageEnhance
 import pytesseract
 import numpy as np
 
@@ -12,21 +12,10 @@ def _get_reader():
         _reader = easyocr.Reader(['en'])
     return _reader
 
-def run_ocr(image_bytes: bytes) -> str:
-    try:
-        reader = _get_reader()
-        image = Image.open(io.BytesIO(image_bytes)).convert('RGB')
-        results = reader.readtext(np.array(image), detail=0)
-        text = "\n".join(results)
-        if len(text.strip()) > 10:
-            return text
-    except Exception as e:
-        pass
+def run_ocr(file_bytes: bytes) -> str:
 
-    # Fallback to pytesseract
-    try:
-        image = Image.open(io.BytesIO(image_bytes)).convert('L')
-        text = pytesseract.image_to_string(image)
-        return text
-    except Exception as e:
-        return ""
+    image = Image.open(io.BytesIO(file_bytes)).convert("L")
+    enhancer = ImageEnhance.Contrast(image)
+    image = enhancer.enhance(2.0)
+    text = pytesseract.image_to_string(image)
+    return text
