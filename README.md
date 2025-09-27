@@ -1,1 +1,1 @@
-A simple receipt to budget app
+A simple receipt to budget app, uses tesseract OCR to scan receipts
