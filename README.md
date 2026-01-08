@@ -1,8 +1,8 @@
-Receipt-budget
+Budget-Planner
 
-A simple receipt-to-budget web app: uses OCR to scan receipts, parse expense data, and suggest how to save money 🧾💰
+A simple receipt-to-budget web app: uses OCR to scan receipts, parse expense data, and suggest how to save money.
 
-🎯 What it does
+What it does
 
 Scans receipt images (e.g. photos of printed receipts) using OCR (Tesseract OCR / EasyOCR) to recognize text.
 
